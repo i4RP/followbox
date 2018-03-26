@@ -1,0 +1,15 @@
+current directory: /Users/darvish/Deveropment_local/contact/vendor/bundle/gems/bindex-0.5.0/ext/bindex
+/Users/darvish/.rbenv/versions/2.4.1/bin/ruby -r ./siteconf20180326-12623-1jy2yaw.rb extconf.rb
+creating Makefile
+
+current directory: /Users/darvish/Deveropment_local/contact/vendor/bundle/gems/bindex-0.5.0/ext/bindex
+make "DESTDIR=" clean
+
+current directory: /Users/darvish/Deveropment_local/contact/vendor/bundle/gems/bindex-0.5.0/ext/bindex
+make "DESTDIR="
+compiling cruby.c
+linking shared-object bindex/cruby.bundle
+
+current directory: /Users/darvish/Deveropment_local/contact/vendor/bundle/gems/bindex-0.5.0/ext/bindex
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 cruby.bundle ./.gem.20180326-12623-hrfftt/bindex
