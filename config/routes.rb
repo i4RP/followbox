@@ -12,13 +12,11 @@ Rails.application.routes.draw do
   #
   # get 'lists/update'
 
-  resources :lists
-
-
+  resources :lists,  param: :name, path: '/'
 
   get 'pages/index'
 
-  root to: 'lists#new'
+  # root to: 'lists#new'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   #root 'application#hello'

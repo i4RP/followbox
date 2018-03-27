@@ -13,7 +13,7 @@ class ListsController < ApplicationController
     # パラメーター(リストの名前)と共にリスト作成
     @list = List.new(list_params)
     if @list.save
-      redirect_to list_path(@list), notice: "リスティングを作成・保存をしました"
+      redirect_to list_path(@list.name), notice: "リスティングを作成・保存をしました"
     else
       redirect_to new_list_path, notice: "リスティングを作成・保存出来ませんでした"
     end
