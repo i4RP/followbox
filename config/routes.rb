@@ -12,9 +12,10 @@ Rails.application.routes.draw do
   #
   # get 'lists/update'
 
-  resources :lists,  param: :name, path: '/'
+  get '/:name/share' =>'lists#share',as: :share_list
 
-  get ':name/share' =>'lists#share'
+
+    resources :lists,  param: :name, path: '/'
 
   get 'pages/index'
 

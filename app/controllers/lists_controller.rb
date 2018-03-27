@@ -1,12 +1,14 @@
 class ListsController < ApplicationController
+
   def index
   end
 
   def show
+    @path = request.path
   end
 
   def new
-    @list = List.new
+    @newlist = List.new
   end
 
   def create
@@ -26,11 +28,12 @@ class ListsController < ApplicationController
   end
 
   def share
-
+    @path = request.path
   end
 
   private
+
   def list_params
-    params.require(:list).permit(:name, :status)
+    params.require(:list).permit(:name)
   end
 end
