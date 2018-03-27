@@ -14,6 +14,8 @@ Rails.application.routes.draw do
 
   resources :lists,  param: :name, path: '/'
 
+  get ':name/share' =>'lists#share'
+
   get 'pages/index'
 
   # root to: 'lists#new'

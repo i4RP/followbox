@@ -25,6 +25,10 @@ class ListsController < ApplicationController
   def update
   end
 
+  def share
+
+  end
+
   private
   def list_params
     params.require(:list).permit(:name, :status)
