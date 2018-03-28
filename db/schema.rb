@@ -10,15 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180327211705) do
+ActiveRecord::Schema.define(version: 20180328011546) do
 
-  create_table "lists", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "user_contacts", force: :cascade do |t|
+  create_table "contacts", force: :cascade do |t|
     t.string "twitter_id"
     t.string "name"
     t.string "nickname"
@@ -26,7 +20,13 @@ ActiveRecord::Schema.define(version: 20180327211705) do
     t.integer "list_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["list_id"], name: "index_user_contacts_on_list_id"
+    t.index ["list_id"], name: "index_contacts_on_list_id"
+  end
+
+  create_table "lists", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
