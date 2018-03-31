@@ -1,14 +1,2 @@
 <h1><%= @path %></h1>
-<h1><%= @nickname %></h1>
-<p><%= link_to "リスト作成ページへ", new_list_path %></p>
-<p><%= link_to "シェアページへ", share_list_path %></p>
-<p><%= link_to "シェアページへ", share_list_path %></p>
-<ul>
-      <li>あなたの情報</li>
-      <li><%=current_user.email%></li>
-      <li><%=current_user.name%></li>
-      <li><%=current_user.nickname%></li>
-      <li><%=current_user.image%></li>
-      <li><%=current_user.location%></li>
-      <li>このリストが持つuser_contact1人目</li>
-</ul>
+<p><%= link_to "フォローボックス作成ページへ", new_list_path %></p>

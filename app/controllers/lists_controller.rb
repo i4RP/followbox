@@ -1,7 +1,7 @@
 class ListsController < ApplicationController
 
   def index
-
+    @list = List.new
   end
 
   def show
@@ -11,8 +11,8 @@ class ListsController < ApplicationController
         @nickname = current_user.nickname
         if Follow.exists?(nickname: @nickname, list: @path)
           #条件を全てクリア
+
         else
-          #コンタクト作成して表示
           @follow = Follow.new(
             name: current_user.name,
             nickname: current_user.nickname,
@@ -22,11 +22,11 @@ class ListsController < ApplicationController
           if @follow.save then
             redirect_to list_path(@follow.list), notice: "あなたのコンタクトを作成・追加しました"
           else
-            redirect_to new_contact_path, notice: "コンタクトを作成・保存出来ませんでした"
+            redirect_to lists_path, notice: "コンタクトを作成・保存出来ませんでした"
           end
         end
       else
-        redirect_to new_list_path, notice: "リストが存在しません。新しくリストを作成するか、URLを確認してください"
+        redirect_to lists_path, notice: "フォローボックスが存在しません。新しくフォローボックスを作成するか、URLを確認してください"
       end
     else
       redirect_to user_twitter_omniauth_authorize_path
@@ -42,13 +42,17 @@ class ListsController < ApplicationController
   end
 
   def create
-    # パラメーター(リストの名前)と共にリスト作成
-    @name = :name
+    # パラメーター(フォローボックスの名前)と共にフォローボックス作成
+    # @name = :name
     @list = List.new(list_params)
-    if @list.save then
-      redirect_to list_path(@list.name), notice: "リスティングを作成・保存をしました"
+    if List.exists?(name: @list.name)
+      redirect_to list_path(@list.name), notice: "フォローボックスが見つかりました"
     else
-      redirect_to new_list_path, notice: "リスティングを作成・保存出来ませんでした"
+      if @list.save then
+        redirect_to list_path(@list.name), notice: "フォローボックスを作成・保存をしました"
+      else
+        redirect_to new_list_path, notice: "フォローボックスを作成・保存出来ませんでした"
+      end
     end
   end
 

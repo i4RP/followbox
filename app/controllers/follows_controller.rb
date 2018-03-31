@@ -8,11 +8,17 @@ class FollowsController < ApplicationController
 
   def create
     @follow = Follow.new(follow_params)
-        if @follow.save then
-          redirect_to list_path(@follow.list), notice: "コンタクトを作成・保存をしました"
-        else
-          redirect_to new_contact_path, notice: "コンタクトを作成・保存出来ませんでした"
-        end
+    @list = @follow.list
+    @nickname = @follow.nickname
+    if Follow.exists?(nickname: @nickname, list: @list)
+      redirect_to new_contact_path, notice: "既にそのフォローボックスには同じコンタクトが存在しています"
+    else
+      if @follow.save then
+        redirect_to new_contact_path, notice: "コンタクトを作成・保存をしました"
+      else
+        redirect_to new_contact_path, notice: "コンタクトを作成・保存出来ませんでした"
+      end
+    end
   end
 
   def edit
