@@ -9,11 +9,11 @@ class ListsController < ApplicationController
     if user_signed_in?
       if List.exists?(name: @path)
         @nickname = current_user.nickname
-        # if Contact.exists?(twitter_id: @nickname)
-        #   #条件を全てクリア
-        # else
-        #   redirect_to contacts_new_path, notice: "リストにあなたのコンタクトが存在していません。リストにあなたのコンタクトを追加してください。"
-        # end
+        if Follow.exists?(nickname: @nickname, list: @path)
+          #条件を全てクリア
+        else
+          redirect_to new_follow_path, notice: "リストにあなたのコンタクトが存在していません。リストにあなたのコンタクトを追加してください。"
+        end
       else
         redirect_to new_list_path, notice: "リストが存在しません。新しくリストを作成するか、URLを確認してください"
       end

@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
   get '/:name/share' =>'lists#share',as: :share_list
@@ -7,8 +6,7 @@ Rails.application.routes.draw do
   # post '/:name/addcontact' =>'contacts#create',as: :create_contact
 
     resources :lists,  param: :name, path: '/'
-    resources :contacts
-
+    resources :follows
   get 'pages/index'
 
   # root to: 'lists#new'
