@@ -12,7 +12,18 @@ class ListsController < ApplicationController
         if Follow.exists?(nickname: @nickname, list: @path)
           #条件を全てクリア
         else
-          redirect_to new_follow_path, notice: "リストにあなたのコンタクトが存在していません。リストにあなたのコンタクトを追加してください。"
+          #コンタクト作成して表示
+          @follow = Follow.new(
+            name: current_user.name,
+            nickname: current_user.nickname,
+            image: current_user.image,
+            list: @path
+           )
+          if @follow.save then
+            redirect_to list_path(@follow.list), notice: "あなたのコンタクトを作成・追加しました"
+          else
+            redirect_to new_contact_path, notice: "コンタクトを作成・保存出来ませんでした"
+          end
         end
       else
         redirect_to new_list_path, notice: "リストが存在しません。新しくリストを作成するか、URLを確認してください"
