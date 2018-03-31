@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180328011546) do
+ActiveRecord::Schema.define(version: 20180331084214) do
 
   create_table "contacts", force: :cascade do |t|
     t.string "twitter_id"
     t.string "name"
     t.string "nickname"
     t.string "image"
-    t.integer "list_id"
+    t.string "list_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["list_id"], name: "index_contacts_on_list_id"

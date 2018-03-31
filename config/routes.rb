@@ -1,22 +1,13 @@
 Rails.application.routes.draw do
 
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
-  # get 'lists/index'
-  #
-  # get 'lists/show'
-  #
-  # get 'lists/new'
-  #
-  # get 'lists/create'
-  #
-  # get 'lists/edit'
-  #
-  # get 'lists/update'
 
   get '/:name/share' =>'lists#share',as: :share_list
-
+  # get '/:name/addcontact' =>'contacts#new',as: :new_contact
+  # post '/:name/addcontact' =>'contacts#create',as: :create_contact
 
     resources :lists,  param: :name, path: '/'
+    resources :contacts
 
   get 'pages/index'
 

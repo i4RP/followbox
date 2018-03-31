@@ -1,9 +1,9 @@
-<h1><%= @path[1..-1] %></h1>
+<h1><%= @path %></h1>
+<h1><%= @nickname %></h1>
 <p><%= link_to "リスト作成ページへ", new_list_path %></p>
+<p><%= link_to "シェアページへ", share_list_path %></p>
+<p><%= link_to "シェアページへ", share_list_path %></p>
 <ul>
-    <%if user_signed_in? %>
-    <p><%= link_to "シェアページへ", share_list_path %></p>
-    <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
       <li>あなたの情報</li>
       <li><%=current_user.email%></li>
       <li><%=current_user.name%></li>
@@ -11,7 +11,4 @@
       <li><%=current_user.image%></li>
       <li><%=current_user.location%></li>
       <li>このリストが持つuser_contact1人目</li>
-    <%else%>
-      <li><%= link_to "ログイン", new_user_session_path %></li>
-    <%end%>
 </ul>
