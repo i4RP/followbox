@@ -11,12 +11,12 @@ class FollowsController < ApplicationController
     @list = @follow.list
     @nickname = @follow.nickname
     if Follow.exists?(nickname: @nickname, list: @list)
-      redirect_to new_contact_path, notice: "既にそのフォローボックスには同じコンタクトが存在しています"
+      redirect_to new_follow_path, notice: "既にそのフォローボックスには同じアカウントが存在しています"
     else
       if @follow.save then
-        redirect_to new_contact_path, notice: "コンタクトを作成・保存をしました"
+        redirect_to lists_path, notice: "フォローボックスにアカウントを作成しました"
       else
-        redirect_to new_contact_path, notice: "コンタクトを作成・保存出来ませんでした"
+        redirect_to lists_path, notice: "フォローボックスにアカウントを作成・保存出来ませんでした"
       end
     end
   end

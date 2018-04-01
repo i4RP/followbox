@@ -1,17 +1,84 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
- // Custom bootstrap variables must be set or imported *before* bootstrap.
- @import "bootstrap";
+@import "bootstrap";
+
+body{
+  background-color: #f9f9f9;
+}
+
+h1{
+  font-size: 30px;
+}
+
+.container .row{
+    margin-top: 100px;
+    color: black;
+}
+
+.panel-top{
+  padding-top: 50px;
+  padding-bottom: 50px;
+  text-align: center;
+  border: 1px solid #eee;
+}
+
+li.panel-top{
+  font-size: 25px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 40px;
+  padding-right: 40px;
+  background-color: white;
+}
+
+.navbar {
+    height: 50px;
+    background: transparent;
+    z-index: 10;
+    font-weight: 600;
+    background-color: #FFF;
+    color:black;
+    font-weight: 700;
+    border-bottom: 1px;
+    border-bottom-color: black;
+}
+
+a.logo-font{
+  margin: auto;
+  font-size: 21px;
+}
+
+div.center {
+  width: 100%;
+  text-align: center;
+  margin: auto;
+}
+
+div.field{
+  margin: 10px;
+}
+
+input#list_name{
+  margin: 15px;
+}
+
+div.actions{
+  margin: 10px;
+}
+
+p.note{
+  font-size: 11px;
+}
+p.notice{
+  text-align: center;
+}
+
+.ul-unstyled{
+  list-style: none; padding-left: 0;
+}
+
+.col-middle{
+  vertical-align: middle;
+  display: table-cell;
+  float: none;
+}

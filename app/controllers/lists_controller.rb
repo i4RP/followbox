@@ -11,7 +11,7 @@ class ListsController < ApplicationController
         @nickname = current_user.nickname
         if Follow.exists?(nickname: @nickname, list: @path)
           #条件を全てクリア
-
+          @follows = Follow.where(list: @path).all
         else
           @follow = Follow.new(
             name: current_user.name,

@@ -1,29 +1,30 @@
-<div class="panel-body">
-    <!-- ここからフォーム -->
-    <%= form_for @follow do |f| %>
-       <h1>FollowBox</h1>
-        <!-- listのnameを記入 -->
-        <div class="field">
-        <p>
-          <%= f.label :"プロフィールの名前" %>
-          <%= f.text_field :name %>
-        </p>
-        <p>
-          <%= f.label :"ツイッターID" %>
-          <%= f.text_field :nickname %>
-        </p>
-        <p>
-          <%= f.label :"アイコンのURL" %>
-          <%= f.text_field :image %>
-        </p>
-        <p>
-          <%= f.label :"フォローボックス名" %>
-          <%= f.text_field :list %>
-        </p>
-        </div>
-        <!-- list作成ボタン -->
-        <div class="actions">
-          <%= f.submit "フォローボックスを作成する",class:"btn btn-success" %>
-        </div>
-    <% end %>
+<div class="center">
+  <div class="panel-body">
+      <!-- ここからフォーム -->
+      <%= form_for @follow do |f| %>
+          <!-- listのnameを記入 -->
+          <div class="field">
+          <p>
+            <%= f.label :"プロフィールの名前" %>
+            <%= f.text_field :name %>
+          </p>
+          <p>
+            <%= f.label :"ツイッターID" %>
+            <%= f.text_field :nickname %>
+          </p>
+          <p>
+            <%= f.label :"アイコンのURL" %>
+            <%= f.text_field :image %>
+          </p>
+          <p>
+            <%= f.label :"フォローボックス名" %>
+            <%= f.text_field :list %>
+          </p>
+          </div>
+          <!-- list作成ボタン -->
+          <div class="actions">
+            <%= f.submit "フォローボックスにアカウントを作成する",class:"btn btn-success" %>
+          </div>
+      <% end %>
+  </div>
 </div>
