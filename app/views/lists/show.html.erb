@@ -8,9 +8,11 @@
             <div class="panel-heading">アカウント一覧</div>
               <% @follows.each do |follow| %>
                 <li class="panel-body ul-unstyled">
-                  <span class="panel-list-img text-center"></span>
+                  <span class="panel-follow-img text-center"></span>
                   <span class="follow-title"><%= follow.name %></span>
                   <span class="follow-nickname">@<%= follow.nickname %></span>
+                  <!-- フォローボタン -->
+                    <!-- フォローボタン end -->
                 </li>
               <% end %>
             </div>
