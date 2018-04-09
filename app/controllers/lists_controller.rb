@@ -1,7 +1,11 @@
 class ListsController < ApplicationController
 
-  def indexs
+  def index
+    if user_signed_in?
       @list = List.new
+    else
+      redirect_to user_twitter_omniauth_authorize_path
+    end
   end
 
   def show
